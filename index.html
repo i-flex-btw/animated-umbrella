@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--
+  ============================================
+  HOW TO PERSONALIZE THIS FILE
+  1. <title> and the meta tags right below it
+  2. Header: tagline text, the letter inside the little mark, and the
+     contact email (search for "hello@yourdomain.com")
+  3. Hero: replace "@YOURHANDLE"
+  4. Links: each <a class="card ..."> has a placeholder href AND a
+     card-title — replace both with your real profile + label.
+     Add or delete <a class="card ..."> blocks to change how many you have.
+  5. Footer: update the handle text, and see the TODO in <script> at
+     the bottom to wire the signup form to a real email tool.
+  ============================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#F6F4EE" />
+<title>Jeetin Yadav</title>
+<meta name="description" content="Find me everywhere — all my links in one place." />
+<meta property="og:title" content="@13.raosahab" />
+<meta property="og:description" content="Find me everywhere — all my links in one place." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2315130F'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23F6F4EE' font-family='Arial' font-weight='900'%3EY%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F6F4EE;
+    --ink: #15130F;
+    --accent: #FF2E93;
+    --muted: rgba(21,19,15,0.42);
+    --card-radius: 22px;
+    --wrap: 720px;
+
+    --c-pink:   #FF4DA6;
+    --c-sky:    #3DCBFF;
+    --c-lime:   #C6FF4D;
+    --c-orange: #FF9142;
+    --c-violet: #B48CFF;
+    --c-yellow: #FFD400;
+    --c-coral:  #FF6B6B;
+    --c-teal:   #4DEBD1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  /* ---------- header ---------- */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    font-family: 'Space Mono', 'SF Mono', Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .site-header .tagline s { opacity: 0.4; }
+
+  .mark {
+    width: 34px;
+    height: 34px;
+    background: var(--ink);
+    border-radius: 8px;
+    transform: rotate(45deg);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .mark span {
+    transform: rotate(-45deg);
+    color: var(--bg);
+    font-family: 'Anton', sans-serif;
+    font-size: 13px;
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    font-family: 'Anton', Impact, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.86;
+    letter-spacing: -0.01em;
+    font-size: clamp(2.6rem, 13vw, 6.4rem);
+    margin: 0 0 34px;
+    word-break: break-word;
+  }
+
+  /* ---------- link cards ---------- */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: clamp(22px, 5vw, 34px);
+    border-radius: var(--card-radius);
+    margin-top: -10px;
+    transform: rotate(var(--rot));
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+    box-shadow: 0 6px 16px rgba(21,19,15,0.08);
+  }
+  .stack .card:first-child { margin-top: 0; }
+
+  .card:hover,
+  .card:focus-visible {
+    transform: rotate(0deg) translateY(-6px) scale(1.015);
+    box-shadow: 0 18px 34px rgba(21,19,15,0.18);
+    z-index: 5;
+    outline: none;
+  }
+
+  .card-num {
+    font-family: 'Space Mono', 'SF Mono', Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
+  .card-title {
+    font-family: 'Anton', Impact, sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    line-height: 1;
+  }
+
+  .card-arrow {
+    width: 22px;
+    height: 22px;
+    opacity: 0;
+    transform: translate(-6px, 6px) rotate(-45deg);
+    transition: opacity .3s ease, transform .3s ease;
+    flex-shrink: 0;
+  }
+  .card:hover .card-arrow,
+  .card:focus-visible .card-arrow {
+    opacity: 1;
+    transform: translate(0,0) rotate(-45deg);
+  }
+
+  .card--pink   { background: var(--c-pink); }
+  .card--sky    { background: var(--c-sky); }
+  .card--lime   { background: var(--c-lime); }
+  .card--orange { background: var(--c-orange); }
+  .card--violet { background: var(--c-violet); }
+  .card--yellow { background: var(--c-yellow); }
+  .card--coral  { background: var(--c-coral); }
+  .card--teal   { background: var(--c-teal); }
+
+  /* ---------- footer ---------- */
+  .site-footer {
+    max-width: var(--wrap);
+    margin: 50px auto 0;
+    padding: 26px 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(21,19,15,0.1);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Anton', Impact, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .footer-brand .mark { width: 26px; height: 26px; border-radius: 6px; }
+  .footer-brand .mark span { font-size: 10px; }
+
+  .footer-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .footer-label {
+    font-family: 'Space Mono', 'SF Mono', Consolas, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  #notify-form { display: flex; gap: 8px; flex-wrap: wrap; }
+  #notify-form input {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(21,19,15,0.2);
+    background: #fff;
+    min-width: 180px;
+  }
+  #notify-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #notify-form button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    background: var(--ink);
+    color: var(--bg);
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+  #notify-form button:hover { background: var(--accent); }
+  #notify-form button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .footer-thanks { font-family: 'Space Mono', monospace; font-size: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, #notify-form button { transition: none; }
+  }
+
+  @media (max-width: 480px) {
+    .site-header { font-size: 10px; }
+    .site-footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== HEADER — edit tagline + contact email ===== -->
+    <header class="site-header">
+      <div class="tagline"><s>ONE PROFILE</s> ALL PLATFORMS</div>
+      <div class="mark" aria-hidden="true"><span>JY</span></div>
+      <a class="contact" href="mailto:joyrao017@gmail.com">
+        HELLO@JEETIN.CYOU
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h6m0 0l-2.5-2.5M15 12l-2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </header>
+
+    <!-- ===== HERO — replace with your name / handle ===== -->
+    <h1 class="hero">Hey, I'am Jeetin</h1>
+
+    <!-- ===== LINKS — replace href + card-title, add/remove cards ===== -->
+    <nav class="stack" aria-label="Social links">
+      <a class="card card--pink" style="--rot:-1.4deg" href="https://instagram.com/13.raosahab" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">001</span>
+        <span class="card-title">Instagram - 13.raosahab</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--teal" style="--rot:1.1deg" href="https://instagram.com/jeetinydvv" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">002</span>
+        <span class="card-title">Instagram - Jeetinydvv</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--sky" style="--rot:-0.9deg" href="https://x.com/jeetinyadav" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">003</span>
+        <span class="card-title">X / Twitter</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--coral" style="--rot:1.3deg" href="https://NGL.LINK/jeetinydvv" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">004</span>
+        <span class="card-title">NGL</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--violet" style="--rot:-1.1deg" href="https://www.snapchat.com/add/jeetin.yadav?share_id=M1OYmW9koOg&locale=en-IN" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">005</span>
+        <span class="card-title">Snapchat</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--lime" style="--rot:0.9deg" href="https://t.me/jeetinyadav" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">006</span>
+        <span class="card-title">Telegram</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="card card--orange" style="--rot:1.0deg" href="mailto:joyrao017@gmail.com">
+        <span class="card-num">007
+        </span>
+        <span class="card-title">Email me</span>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M19 5H9M19 5V15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ===== FOOTER — edit handle + connect the signup form ===== -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="mark" aria-hidden="true"><span>JY</span></div>
+      WWW.JEETIN.cyou <br> all rights reserved (2026)
+    </div>
+  </footer>
+
+<script>
+  document.getElementById('notify-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // TODO: connect this to your email tool (Mailchimp, ConvertKit, Beehiiv, etc.)
+    // by pointing this form's action at their endpoint, or calling their API here.
+    var form = e.target;
+    var thanks = document.createElement('span');
+    thanks.className = 'footer-thanks';
+    thanks.textContent = "You're on the list \u2713";
+    form.replaceWith(thanks);
+  });
+</script>
+</body>
+</html>
