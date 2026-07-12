@@ -74,8 +74,8 @@
   .wrap {
     max-width: var(--wrap);
     margin: 0 auto;
-    padding: 28px 20px 60px;
-  }
+    padding: 28px 20px 20px;   /* was 60px */
+}
 
   /* ---------- header ---------- */
   .site-header {
@@ -127,6 +127,14 @@
     margin: 0 0 34px;
     word-break: break-word;
   }
+  .hero-description {
+  max-width: 620px;
+  margin: -8px 0 36px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 500;
+}
 
   /* ---------- link cards ---------- */
   .stack {
@@ -201,8 +209,8 @@
   /* ---------- footer ---------- */
   .site-footer {
     max-width: var(--wrap);
-    margin: 50px auto 0;
-    padding: 26px 20px 50px;
+    margin: 10px auto 0;
+    padding: 20px 20px 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -235,6 +243,13 @@
     letter-spacing: 0.06em;
     color: var(--muted);
   }
+  .footer-description {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
 
   #notify-form { display: flex; gap: 8px; flex-wrap: wrap; }
   #notify-form input {
@@ -279,15 +294,15 @@
     <!-- ===== HEADER — edit tagline + contact email ===== -->
     <header class="site-header">
       <div class="tagline"><s>ONE PROFILE</s> ALL PLATFORMS</div>
-      <div class="mark" aria-hidden="true"><span>JY</span></div>
-      <a class="contact" href="mailto:joyrao017@gmail.com">
-        HELLO@JEETIN.CYOU
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h6m0 0l-2.5-2.5M15 12l-2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
     </header>
 
     <!-- ===== HERO — replace with your name / handle ===== -->
     <h1 class="hero">Hey, I'am Jeetin</h1>
+    <p class="hero-description">
+  If you are then, you saw my website domain, isn't it cool right?<br>
+  I like to build cool things, talking to people. These are links to my social media - feel free to connect to me!
+</p>
+
 
     <!-- ===== LINKS — replace href + card-title, add/remove cards ===== -->
     <nav class="stack" aria-label="Social links">
@@ -332,6 +347,11 @@
 
   <!-- ===== FOOTER — edit handle + connect the signup form ===== -->
   <footer class="site-footer">
+  <div>
+    <p class="footer-description">
+      Thanks for stopping by. Bye Bye.
+    </p>
+  </div>
     <div class="footer-brand">
       <div class="mark" aria-hidden="true"><span>JY</span></div>
       WWW.JEETIN.cyou <br> all rights reserved (2026)
